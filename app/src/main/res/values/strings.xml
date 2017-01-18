@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">hlpp-Android</string>
+    <string name="intent_error">网络似乎出问题了</string>
+</resources>
