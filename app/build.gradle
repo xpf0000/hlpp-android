@@ -17,10 +17,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    lintOptions{
+        checkReleaseBuilds false
+        abortOnError false
+    }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
@@ -35,4 +40,14 @@ dependencies {
     compile 'com.bigkoo:alertview:1.0.3'
     compile 'com.bigkoo:svprogresshud:1.0.6'
     compile 'com.jph.takephoto:takephoto_library:4.0.2'
+    compile files('libs/MobCommons-2016.1222.1756.jar')
+    compile files('libs/MobTools-2016.1222.1756.jar')
+    compile files('libs/ShareSDK-Core-2.8.0.jar')
+    compile files('libs/ShareSDK-QQ-2.8.0.jar')
+    compile files('libs/ShareSDK-QZone-2.8.0.jar')
+    compile files('libs/ShareSDK-SinaWeibo-2.8.0.jar')
+    compile files('libs/ShareSDK-Wechat-2.8.0.jar')
+    compile files('libs/ShareSDK-Wechat-Core-2.8.0.jar')
+    compile files('libs/ShareSDK-Wechat-Favorite-2.8.0.jar')
+    compile files('libs/ShareSDK-Wechat-Moments-2.8.0.jar')
 }

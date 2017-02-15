@@ -8,7 +8,9 @@ import android.os.Bundle;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
+import cn.sharesdk.framework.ShareSDK;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -88,10 +90,13 @@ public class LocationApplication extends Application {
 
                 Response response = chain.proceed(request);
 
+                XNetUtil.APPPrintln(response);
+
                 return response;
             }
-        }).build();
-
+        }).connectTimeout(90, TimeUnit.SECONDS)
+                .writeTimeout(90, TimeUnit.SECONDS)
+                .readTimeout(90, TimeUnit.SECONDS).build();
 
         retrofit = new Retrofit.Builder()
                 .baseUrl(ServicesAPI.APPUrl)
